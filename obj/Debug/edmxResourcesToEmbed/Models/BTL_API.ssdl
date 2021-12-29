@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BTL_APIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BaiHoc">
+    <Key>
+      <PropertyRef Name="ID_BaiHoc" />
+    </Key>
+    <Property Name="ID_BaiHoc" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="TieuDe" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nguon" Type="nvarchar" MaxLength="200" />
+    <Property Name="ID_KhoaHoc" Type="nvarchar" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="ChitietThanhToan">
+    <Key>
+      <PropertyRef Name="ID_CTTT" />
+    </Key>
+    <Property Name="ID_CTTT" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="ID_ThanhToan" Type="nvarchar" MaxLength="4" />
+    <Property Name="ID_KhoaHoc" Type="nvarchar" MaxLength="4" />
+    <Property Name="GiaTien" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="CMT">
+    <Key>
+      <PropertyRef Name="ID_CMT" />
+    </Key>
+    <Property Name="ID_CMT" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="ID_Rep" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="IDUser" Type="nvarchar" MaxLength="100" />
+    <Property Name="noidung" Type="nvarchar" MaxLength="500" />
+    <Property Name="ThoiGiangDang" Type="datetime" />
+  </EntityType>
+  <EntityType Name="KhoaHoc">
+    <Key>
+      <PropertyRef Name="ID_KhoaHoc" />
+    </Key>
+    <Property Name="ID_KhoaHoc" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="100" />
+    <Property Name="GiaTien" Type="int" />
+    <Property Name="TomTat" Type="nvarchar" MaxLength="200" />
+    <Property Name="Anh" Type="nvarchar" MaxLength="100" />
+    <Property Name="ThoiGianDangNhap" Type="datetime" />
+  </EntityType>
+  <EntityType Name="NguoiDung">
+    <Key>
+      <PropertyRef Name="IDUser" />
+    </Key>
+    <Property Name="IDUser" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NgaySinh" Type="datetime" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="SDT" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Anh" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="NguoiDungKhoaHoc">
+    <Key>
+      <PropertyRef Name="ID_UserHoc" />
+    </Key>
+    <Property Name="ID_UserHoc" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="IDUser" Type="nvarchar" MaxLength="100" />
+    <Property Name="ID_KhoaHoc" Type="nvarchar" MaxLength="4" />
+    <Property Name="GioHoc" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ThanhToan">
+    <Key>
+      <PropertyRef Name="ID_ThanhToan" />
+    </Key>
+    <Property Name="ID_ThanhToan" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="IDUser" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NgayThanhToan" Type="datetime" />
+    <Property Name="TongTien" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK__BaiHoc__ID_KhoaH__3A81B327">
+    <End Role="KhoaHoc" Type="Self.KhoaHoc" Multiplicity="0..1" />
+    <End Role="BaiHoc" Type="Self.BaiHoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhoaHoc">
+        <PropertyRef Name="ID_KhoaHoc" />
+      </Principal>
+      <Dependent Role="BaiHoc">
+        <PropertyRef Name="ID_KhoaHoc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChitietTh__GiaTi__403A8C7D">
+    <End Role="KhoaHoc" Type="Self.KhoaHoc" Multiplicity="0..1" />
+    <End Role="ChitietThanhToan" Type="Self.ChitietThanhToan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhoaHoc">
+        <PropertyRef Name="ID_KhoaHoc" />
+      </Principal>
+      <Dependent Role="ChitietThanhToan">
+        <PropertyRef Name="ID_KhoaHoc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChitietTh__ID_Th__412EB0B6">
+    <End Role="ThanhToan" Type="Self.ThanhToan" Multiplicity="0..1" />
+    <End Role="ChitietThanhToan" Type="Self.ChitietThanhToan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThanhToan">
+        <PropertyRef Name="ID_ThanhToan" />
+      </Principal>
+      <Dependent Role="ChitietThanhToan">
+        <PropertyRef Name="ID_ThanhToan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CMT__ThoiGiangDa__440B1D61">
+    <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
+    <End Role="CMT" Type="Self.CMT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiDung">
+        <PropertyRef Name="IDUser" />
+      </Principal>
+      <Dependent Role="CMT">
+        <PropertyRef Name="IDUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NguoiDung__GioHo__46E78A0C">
+    <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
+    <End Role="NguoiDungKhoaHoc" Type="Self.NguoiDungKhoaHoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiDung">
+        <PropertyRef Name="IDUser" />
+      </Principal>
+      <Dependent Role="NguoiDungKhoaHoc">
+        <PropertyRef Name="IDUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NguoiDung__ID_Kh__47DBAE45">
+    <End Role="KhoaHoc" Type="Self.KhoaHoc" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="NguoiDungKhoaHoc" Type="Self.NguoiDungKhoaHoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhoaHoc">
+        <PropertyRef Name="ID_KhoaHoc" />
+      </Principal>
+      <Dependent Role="NguoiDungKhoaHoc">
+        <PropertyRef Name="ID_KhoaHoc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ThanhToan__TongT__3D5E1FD2">
+    <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="1" />
+    <End Role="ThanhToan" Type="Self.ThanhToan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiDung">
+        <PropertyRef Name="IDUser" />
+      </Principal>
+      <Dependent Role="ThanhToan">
+        <PropertyRef Name="IDUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BTL_APIModelStoreContainer">
+    <EntitySet Name="BaiHoc" EntityType="Self.BaiHoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChitietThanhToan" EntityType="Self.ChitietThanhToan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CMT" EntityType="Self.CMT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhoaHoc" EntityType="Self.KhoaHoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NguoiDungKhoaHoc" EntityType="Self.NguoiDungKhoaHoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThanhToan" EntityType="Self.ThanhToan" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__BaiHoc__ID_KhoaH__3A81B327" Association="Self.FK__BaiHoc__ID_KhoaH__3A81B327">
+      <End Role="KhoaHoc" EntitySet="KhoaHoc" />
+      <End Role="BaiHoc" EntitySet="BaiHoc" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChitietTh__GiaTi__403A8C7D" Association="Self.FK__ChitietTh__GiaTi__403A8C7D">
+      <End Role="KhoaHoc" EntitySet="KhoaHoc" />
+      <End Role="ChitietThanhToan" EntitySet="ChitietThanhToan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChitietTh__ID_Th__412EB0B6" Association="Self.FK__ChitietTh__ID_Th__412EB0B6">
+      <End Role="ThanhToan" EntitySet="ThanhToan" />
+      <End Role="ChitietThanhToan" EntitySet="ChitietThanhToan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CMT__ThoiGiangDa__440B1D61" Association="Self.FK__CMT__ThoiGiangDa__440B1D61">
+      <End Role="NguoiDung" EntitySet="NguoiDung" />
+      <End Role="CMT" EntitySet="CMT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NguoiDung__GioHo__46E78A0C" Association="Self.FK__NguoiDung__GioHo__46E78A0C">
+      <End Role="NguoiDung" EntitySet="NguoiDung" />
+      <End Role="NguoiDungKhoaHoc" EntitySet="NguoiDungKhoaHoc" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NguoiDung__ID_Kh__47DBAE45" Association="Self.FK__NguoiDung__ID_Kh__47DBAE45">
+      <End Role="KhoaHoc" EntitySet="KhoaHoc" />
+      <End Role="NguoiDungKhoaHoc" EntitySet="NguoiDungKhoaHoc" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ThanhToan__TongT__3D5E1FD2" Association="Self.FK__ThanhToan__TongT__3D5E1FD2">
+      <End Role="NguoiDung" EntitySet="NguoiDung" />
+      <End Role="ThanhToan" EntitySet="ThanhToan" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

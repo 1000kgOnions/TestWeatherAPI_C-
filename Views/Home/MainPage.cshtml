@@ -1,0 +1,156 @@
+﻿@using TestWeatherAPI.Models;
+@model List<KhoaHoc>
+@{
+    ViewBag.Title = "MainPage";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="text-homeimage">
+                <div class="maintext-image" data-scrollreveal="enter top over 1.5s after 0.1s">
+                    Học lập trình để đi làm
+                </div>
+                <div class="subtext-image" data-scrollreveal="enter bottom over 1.7s after 0.3s">
+                    Tham gia ngay!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </header>
+
+<!-- STEPS =============================-->
+<div class="item content">
+    <div class="container toparea">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="col editContent">
+                    <span class="numberstep"><i class="fa fa-shopping-cart"></i></span>
+                    <h3 class="numbertext">Chọn khóa học của chúng tôi</h3>
+                    <p>
+                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis
+                        ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                    </p>
+                </div>
+                <!-- /.col-md-4 -->
+            </div>
+            <!-- /.col-md-4 col -->
+            <div class="col-md-4 editContent">
+                <div class="col">
+                    <span class="numberstep"><i class="fa fa-gift"></i></span>
+                    <h3 class="numbertext">Nhận nhiều ưu đãi</h3>
+                    <p>
+                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis
+                        ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                    </p>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.col-md-4 col -->
+            <div class="col-md-4 editContent">
+                <div class="col">
+                    <span class="numberstep"><i class="fa fa-download"></i></span>
+                    <h3 class="numbertext">Ứng dụng quản lý</h3>
+                    <p>
+                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis
+                        ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- LATEST ITEMS =============================-->
+<section class="item content">
+    <div class="container">
+        <div class="underlined-title">
+            <div class="editContent">
+                <h1 class="text-center latestitems">Khóa Học</h1>
+            </div>
+            <div class="wow-hr type_short">
+                <span class="wow-hr-h">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            @{
+                int i = 0;
+                foreach (var item in Model)
+                {
+                    i++;
+                    <div class="col-md-4">
+                        <div class="productbox">
+                            <div class="fadeshop">
+                                <div class="captionshop text-center" style="display: none;">
+                                    <h3>Thông tin khóa học</h3>
+                                    <p>
+                                        @item.TomTat
+                                    </p>
+                                    <p>
+                                        @*<a href="@Url.Action("XemChiTiet","Home",new{IDKH=item.MaSP})">*@
+                                        <a href="@Url.Action("Khoahoc","Home",new{@IDKH=item.ID_KhoaHoc})" class="learn-more detailslearn"><i class="fa fa-link"></i> Chi tiết</a>
+                                    </p>
+                                </div>
+                                <span class="maxproduct"><img src="~/images/product1-1.jpg" width="400px" alt=""></span>
+                            </div>
+                            <div class="product-details">
+                                <a href="#">
+                                    <h1>Khóa học @item.Ten</h1>
+                                </a>
+                                <span class="price">
+                                    <span class="edd_price">$@item.GiaTien</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            <div class="col-md-4">
+                <div class="productbox">
+                    <div class="fadeshop">
+                        <div class="captionshop text-center" style="display: none;">
+                            <h3>Thông tin khóa học</h3>
+                            <p>
+                                This is a short excerpt to generally describe what the item is about.
+                            </p>
+                            <p>
+                                <a href="#" class="learn-more detailslearn"><i class="fa fa-link"></i> Chi tiết</a>
+                            </p>
+                        </div>
+                        <span class="maxproduct"><img src="~/images/product1-1.jpg" width="400px" alt=""></span>
+                    </div>
+                    <div class="product-details">
+                        <a href="#">
+                            <h1>Khóa học Tester</h1>
+                        </a>
+                        <span class="price">
+                            <span class="edd_price">$49.00</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- BUTTON =============================-->
+<div class="item content">
+    <div class="container text-center">
+        <a href="shop.html" class="homebrowseitems">
+            Browse All Products
+            <div class="homebrowseitemsicon">
+                <i class="fa fa-star fa-spin"></i>
+            </div>
+        </a>
+    </div>
+</div>
+<br />
+

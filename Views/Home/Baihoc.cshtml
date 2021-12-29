@@ -1,0 +1,25 @@
+﻿
+@using TestWeatherAPI.Models;
+@model List<BaiHoc>
+@{
+    ViewBag.Title = "Baihoc";
+    Layout = "~/Views/_Layout.cshtml";
+}
+    </header>
+
+<div class="row">
+    <h2 style="margin: 5% 0 5% 0; text-align: center; color: #f35414;"> @ViewBag.tkh</h2>
+    <div class="text-center">
+        @foreach (var item in Model)
+        {
+            <div class="card" style="padding-bottom:20px;">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/@item.Nguon" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="card-body">
+                    <h2 class="card-title">@item.TieuDe</h2>
+                </div>
+            </div>
+            <hr />
+        }
+    </div>
+</div>
+

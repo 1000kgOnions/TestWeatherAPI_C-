@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7af009f6d3f54e74b8f9b2c65569fbe5" Name="Diagram1">
+        <EntityTypeShape EntityType="BTL_APIModel.BaiHoc" Width="1.5" PointX="6" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTL_APIModel.ChitietThanhToan" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTL_APIModel.CMT" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTL_APIModel.KhoaHoc" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTL_APIModel.NguoiDung" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTL_APIModel.NguoiDungKhoaHoc" Width="1.5" PointX="6" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="BTL_APIModel.ThanhToan" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <AssociationConnector Association="BTL_APIModel.FK__BaiHoc__ID_KhoaH__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="BTL_APIModel.FK__ChitietTh__GiaTi__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="BTL_APIModel.FK__ChitietTh__ID_Th__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="BTL_APIModel.FK__CMT__ThoiGiangDa__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="BTL_APIModel.FK__NguoiDung__ID_Kh__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="BTL_APIModel.FK__NguoiDung__GioHo__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="BTL_APIModel.FK__ThanhToan__TongT__3D5E1FD2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

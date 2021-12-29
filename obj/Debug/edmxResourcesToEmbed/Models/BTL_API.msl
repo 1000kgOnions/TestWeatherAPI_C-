@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BTL_APIModelStoreContainer" CdmEntityContainer="BTL_APIEntities1">
+    <EntitySetMapping Name="BaiHocs">
+      <EntityTypeMapping TypeName="BTL_APIModel.BaiHoc">
+        <MappingFragment StoreEntitySet="BaiHoc">
+          <ScalarProperty Name="ID_BaiHoc" ColumnName="ID_BaiHoc" />
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+          <ScalarProperty Name="Nguon" ColumnName="Nguon" />
+          <ScalarProperty Name="ID_KhoaHoc" ColumnName="ID_KhoaHoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChitietThanhToans">
+      <EntityTypeMapping TypeName="BTL_APIModel.ChitietThanhToan">
+        <MappingFragment StoreEntitySet="ChitietThanhToan">
+          <ScalarProperty Name="ID_CTTT" ColumnName="ID_CTTT" />
+          <ScalarProperty Name="ID_ThanhToan" ColumnName="ID_ThanhToan" />
+          <ScalarProperty Name="ID_KhoaHoc" ColumnName="ID_KhoaHoc" />
+          <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CMTs">
+      <EntityTypeMapping TypeName="BTL_APIModel.CMT">
+        <MappingFragment StoreEntitySet="CMT">
+          <ScalarProperty Name="ID_CMT" ColumnName="ID_CMT" />
+          <ScalarProperty Name="ID_Rep" ColumnName="ID_Rep" />
+          <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+          <ScalarProperty Name="noidung" ColumnName="noidung" />
+          <ScalarProperty Name="ThoiGiangDang" ColumnName="ThoiGiangDang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhoaHocs">
+      <EntityTypeMapping TypeName="BTL_APIModel.KhoaHoc">
+        <MappingFragment StoreEntitySet="KhoaHoc">
+          <ScalarProperty Name="ID_KhoaHoc" ColumnName="ID_KhoaHoc" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+          <ScalarProperty Name="TomTat" ColumnName="TomTat" />
+          <ScalarProperty Name="Anh" ColumnName="Anh" />
+          <ScalarProperty Name="ThoiGianDangNhap" ColumnName="ThoiGianDangNhap" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NguoiDungs">
+      <EntityTypeMapping TypeName="BTL_APIModel.NguoiDung">
+        <MappingFragment StoreEntitySet="NguoiDung">
+          <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="Anh" ColumnName="Anh" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NguoiDungKhoaHocs">
+      <EntityTypeMapping TypeName="BTL_APIModel.NguoiDungKhoaHoc">
+        <MappingFragment StoreEntitySet="NguoiDungKhoaHoc">
+          <ScalarProperty Name="ID_UserHoc" ColumnName="ID_UserHoc" />
+          <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+          <ScalarProperty Name="ID_KhoaHoc" ColumnName="ID_KhoaHoc" />
+          <ScalarProperty Name="GioHoc" ColumnName="GioHoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThanhToans">
+      <EntityTypeMapping TypeName="BTL_APIModel.ThanhToan">
+        <MappingFragment StoreEntitySet="ThanhToan">
+          <ScalarProperty Name="ID_ThanhToan" ColumnName="ID_ThanhToan" />
+          <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+          <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

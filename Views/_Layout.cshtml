@@ -1,0 +1,244 @@
+﻿@{
+    ViewBag.Title = "Weather";
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="">
+    <link href="~/css_js/bootstrap.min.css" rel="stylesheet" />   
+    <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link href="~/css_js/style.css" rel="stylesheet" />
+    <script src="~/css_js/jquery-1.10.2.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="~/css_js/weather_map_translate.js"></script>
+</head>
+
+<body>
+    <span id="lblLat"></span>
+    <span id="lblLon"></span>
+
+    <!-- HEADER =============================-->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="item header margin-top-0">
+        <div class="wrapper">
+            <nav role="navigation" class="navbar navbar-white navbar-embossed navbar-lg navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button data-target="#navbar-collapse-02" data-toggle="collapse" class="navbar-toggle" type="button">
+                            <i class="fa fa-bars"></i>
+                            <span class="sr-only">Toggle navigation</span>
+                        </button>
+                        @*GG translate*@
+                        <div id="google_translate" class="navbar-brand" style="margin-right:20px;"></div>
+                        <a href="@Url.Action("MainPage","Home")" class="navbar-brand brand"> DevPro </a>
+                    </div>
+
+                    <div id="navbar-collapse-02" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right" style="margin-left: 50px;">
+                            <li class="propClone"><a type="button" data-toggle="modal" data-target="#exampleModal" href="checkout.html">Đăng nhập</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="propClone"><a href="@Url.Action("MainPage","Home")">Trang chủ</a></li>
+                            <li class="propClone"><a href="@Url.Action("MainPage","Home")">Khóa học</a></li>
+                            <li class="propClone"><a href="@Url.Action("MainPage","Home")">Liên hệ</a></li>
+                        </ul>
+ 
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+    @RenderBody()
+
+    <!-- AREA =============================-->
+    <div class="item content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <i class="fa fa-microphone infoareaicon"></i>
+                    <div class="infoareawrap">
+                        <h1 class="text-center subtitle">General Questions</h1>
+                        <p>
+                            Want to buy a theme but not sure if it's got all the features you need? Trouble completing the payment? Or
+                            just want to say hi? Send us your message and we will answer as soon as possible!
+                        </p>
+                        <p class="text-center">
+                            <a href="#">- Thông tin về trung tâm -</a>
+                        </p>
+                    </div>
+                </div>
+                <!-- /.col-md-4 col -->
+                <div class="col-md-4">
+                    <i class="fa fa-comments infoareaicon"></i>
+                    <div class="infoareawrap">
+                        <h1 class="text-center subtitle">Theme Support</h1>
+                        <p>
+                            Theme support issues prevent the theme from working as advertised in the demo. This is a free and
+                            guaranteed service offered through our support forum which is found in each theme.
+                        </p>
+                        <p class="text-center">
+                            <a href="#">- Chọn khóa học -</a>
+                        </p>
+                    </div>
+                </div>
+                <!-- /.col-md-4 col -->
+                <div class="col-md-4">
+                    <i class="fa fa-bullhorn infoareaicon"></i>
+                    <div class="infoareawrap">
+                        <h1 class="text-center subtitle">Hire Us</h1>
+                        <p>
+                            If you wish to change an element to look or function differently than shown in the demo, we will be glad
+                            to assist you. This is a paid service due to theme support requests solved with priority.
+                        </p>
+                        <p class="text-center">
+                            <a href="#">- Liên lạc ngay -</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- CALL TO ACTION =============================-->
+    <section class="content-block" style="background-color:#f35414;">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <div class="item" data-scrollreveal="enter top over 0.4s after 0.1s">
+                        <h1 class="callactiontitle">
+                            Đăng ký thử trung tâm<span class="callactionbutton">
+                                <i class="fa fa-gift"></i>
+                                Ưu đãi hấp dẫn
+                            </span>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER =============================-->
+    <div class="footer text-center" style="padding: 30px 0 30px 0;">
+        <div class="footer1">
+            <div class="row">
+                <p class="footernote">
+                    Liên hệ ngay
+                </p>
+                <ul class="social-iconsfooter">
+                    <li><a href="#"><i class="fa fa-phone"></i></a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                </ul>
+
+            </div>
+            <div class="footer2">
+                <p class="footernote" style="font-weight:600">
+                    Thời tiết khu vực: <span id="lblCity"></span>,
+                    <span id="lblCountry"></span>
+                </p>
+
+                <div class="row" style="display: flex; justify-content: space-between;color: #d6cbcb;">
+
+                    <div class="weather">
+                        <div class="temp"><label id="lblTemp"></label><label style="margin-right: 20%;">°C</label><div style="margin-right:5%"><img style="background-color: lightcyan;" id="imgWeatherIconUrl" src="" title="Weather Icon" /></div></div>
+                        <div class="feelslike">Cảm nhận thật: <label id="lblTempFeelsLike"></label><label>°C</label></div>
+                        <div class="weather2">
+                            <ul class="weatherul">
+                                <li class="weatherli">
+                                    <div>
+                                        Độ ẩm:
+                                        <label id="lblHumidity"></label><label>% |</label>
+                                    </div>
+                                </li>
+                                <li class="weatherli">
+                                    <div>
+                                        Sức gió:
+                                        <label id="lblspeed"></label><label>m/s</label>
+                                    </div>
+                                </li>
+                                <li class="weatherli">
+                                    <div>
+                                        Tầm nhìn xa:
+                                        <label id="lblVi"></label><label>.0km </label><br />
+                                    </div>
+                                </li>
+                                <li class="weatherli">
+                                    <div>
+                                        Mô tả:
+                                        <label id="lblDescription"></label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="googleMap" style="height:200px;width:300px;"></div>
+
+                    <!--<div class="footer3" style="height: 200px; width: 300px;">-->
+                    @*<img src="images/product1-1.jpg" style="width: 300px;
+                        height: 200px;" class="" alt="">*@
+                    <!--</div>-->
+                    <!--</div>-->
+                </div>
+
+            </div>
+
+        </div>
+        <p>
+            Copy right by Nhóm1-CNTT4-K59
+        </p>
+
+    </div>
+    <!-- SCRIPTS =============================--> 
+    <script src="~/css_js/jquery-.js"></script>
+    <script src="~/css_js/anim.js"></script>
+    <script>
+        //----HOVER CAPTION---//
+        jQuery(document).ready(function ($) {
+            $('.fadeshop').hover(
+                function () {
+                    $(this).find('.captionshop').fadeIn(150);
+                },
+                function () {
+                    $(this).find('.captionshop').fadeOut(150);
+                }
+            );
+        });
+
+    </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,51 @@
+﻿@model TestWeatherAPI.Models.KhoaHoc
+@{
+    ViewBag.Title = "Khoahoc";
+    Layout = "~/Views/_Layout.cshtml";
+}
+    </header>
+<!-- CONTENT =============================-->
+<section class="item content">
+    <div class="container toparea">
+        <div class="underlined-title">
+            <div class="editContent">
+                <h1 class="text-center latestitems"> @Html.DisplayFor(model => model.Ten) </h1>
+            </div>
+            <div class="wow-hr type_short">
+                <span class="wow-hr-h">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="productbox">
+                    <div class="clearfix">
+                    </div>
+                    <br />
+                    <div class="product-details text-left">
+                        <p>
+                            @Html.DisplayFor(model => model.TomTat)
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <a href="@Url.Action("Baihoc", "Home", new { @IDKH = @Html.DisplayFor(model => model.ID_KhoaHoc)})" class="btn btn-buynow">@Html.DisplayFor(model => model.GiaTien)</a>
+                <div class="properties-box">
+                    <ul class="unstyle">
+                        <li><b class="propertyname">Tên khóa học:</b>@Html.DisplayFor(model => model.Ten)</li>
+                        <li><b class="propertyname">Giá tiền:</b> @Html.DisplayFor(model => model.GiaTien)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    let price = $(".btn-buynow").text()
+    if (price < "0") { $(".btn-buynow").text("Đăng ký") }
+    else $(".btn-buynow").text("Thanh toán")
+</script>
